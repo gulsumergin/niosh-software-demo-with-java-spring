@@ -1,4 +1,5 @@
 # niosh-software-demo-with-java-spring
+https://gulsumergin.github.io/niosh-software-demo-with-java-spring/demo/demo/src/main/resources/static/index.html
 Project Overview:
 The NIOSH RWL (Recommended Weight Limit) Calculator is a web application designed to calculate the Recommended Weight Limit for a manual lifting task based on various factors. The calculation is performed using the NIOSH (National Institute for Occupational Safety and Health) RWL equation, which considers different multipliers such as horizontal, vertical, distance, asymmetric, frequency, and coupling multipliers.
 
