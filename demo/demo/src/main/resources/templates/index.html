@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIOSH RWL Calculator</title>
+</head>
+<body>
+
+    <h1>NIOSH RWL Calculator</h1>
+
+    <label for="loadConstant">Load Constant:</label>
+    <input type="number" id="loadConstant" placeholder="Enter Load Constant" step="0.01" required><br>
+
+    <label for="horizontalMultiplier">Horizontal Multiplier:</label>
+    <input type="number" id="horizontalMultiplier" placeholder="Enter Horizontal Multiplier" step="0.01" required><br>
+
+    <label for="verticalMultiplier">Vertical Multiplier:</label>
+    <input type="number" id="verticalMultiplier" placeholder="Enter Vertical Multiplier" step="0.01" required><br>
+
+    <label for="distanceMultiplier">Distance Multiplier:</label>
+    <input type="number" id="distanceMultiplier" placeholder="Enter Distance Multiplier" step="0.01" required><br>
+
+    <label for="asymmetricMultiplier">Asymmetric Multiplier:</label>
+    <input type="number" id="asymmetricMultiplier" placeholder="Enter Asymmetric Multiplier" step="0.01" required><br>
+
+    <label for="frequencyMultiplier">Frequency Multiplier:</label>
+    <input type="number" id="frequencyMultiplier" placeholder="Enter Frequency Multiplier" step="0.01" required><br>
+
+    <label for="couplingMultiplier">Coupling Multiplier:</label>
+    <input type="number" id="couplingMultiplier" placeholder="Enter Coupling Multiplier" step="0.01" required><br>
+
+    <button onclick="calculateRWL()">Calculate RWL</button>
+
+    <p id="result"></p>
+
+    <script>
+        function calculateRWL() {
+            // Get input values
+            const loadConstant = parseFloat(document.getElementById('loadConstant').value);
+            const horizontalMultiplier = parseFloat(document.getElementById('horizontalMultiplier').value);
+            const verticalMultiplier = parseFloat(document.getElementById('verticalMultiplier').value);
+            const distanceMultiplier = parseFloat(document.getElementById('distanceMultiplier').value);
+            const asymmetricMultiplier = parseFloat(document.getElementById('asymmetricMultiplier').value);
+            const frequencyMultiplier = parseFloat(document.getElementById('frequencyMultiplier').value);
+            const couplingMultiplier = parseFloat(document.getElementById('couplingMultiplier').value);
+
+            // Make AJAX request to the backend
+            fetch(`/calculateRWL?loadConstant=${loadConstant}&horizontalMultiplier=${horizontalMultiplier}&verticalMultiplier=${verticalMultiplier}&distanceMultiplier=${distanceMultiplier}&asymmetricMultiplier=${asymmetricMultiplier}&frequencyMultiplier=${frequencyMultiplier}&couplingMultiplier=${couplingMultiplier}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Display the result
+                    document.getElementById('result').innerText = `Result: ${data}`;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+
+</body>
+</html>
