@@ -32,3 +32,7 @@ The backend performs the NIOSH RWL calculation using the provided parameters.
 The result is sent back to the frontend, and the UI is updated to display the calculated RWL.
 Bootstrap Integration (if applicable):
 If you're using Bootstrap, it's likely included in your project for enhanced styling and UI components. Ensure that Bootstrap is properly linked in your HTML file (index.html), and you can utilize Bootstrap classes to improve the visual appeal of your web page.
+
+
+
+
